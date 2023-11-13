@@ -9,6 +9,7 @@ Stay on top of your finances by conveniently adding and managing your monthly bu
 Need to make changes? No worries! You can delete budget items effortlessly to keep your budget up to date. We believe in flexibility and adaptability, making it simple for you to adjust your budget as needed.
 
 Technologies Used
+
 This project leverages several cutting-edge technologies to provide a seamless user experience:
 
 React: A popular JavaScript library for building user interfaces.
