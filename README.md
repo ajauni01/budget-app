@@ -2,6 +2,8 @@
 
 Welcome to our user-friendly budget management app! Crafted with React, TypeScript, and Vite, this app simplifies tracking your monthly expenses, adding and removing budget items with ease.
 
+[Explore the live demo](https://budget-app-sandy-seven.vercel.app/)
+
 # Key Features
 - Effortless Monthly Budgeting
 - Stay in control of your finances with simple, intuitive tools for managing your monthly budget items. Budgeting has never been this easy.
