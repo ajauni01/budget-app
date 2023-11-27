@@ -7,8 +7,7 @@ Welcome to our user-friendly budget management app! Crafted with React, TypeScri
 # Key Features
 - Effortless Monthly Budgeting
 - Stay in control of your finances with simple, intuitive tools for managing your monthly budget items. Budgeting has never been this easy.
-
-Easy Deletion
+- Easy Deletion
 - Adapt your budget effortlessly by deleting items as needed. Flexibility is key, and we've made adjusting your budget a breeze.
 
 # Technologies Used
