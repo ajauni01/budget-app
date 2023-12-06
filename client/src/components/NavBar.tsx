@@ -17,13 +17,13 @@ const NavBar = () => {
   //  set the theme to the local storage
   useEffect(() => {
     // set the initial theme to the local storage
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("theme", theme!);
     const localTheme = localStorage.getItem("theme");
-    document.documentElement.setAttribute("data-theme", localTheme);
+    document.documentElement.setAttribute("data-theme", localTheme!);
   }, [theme]);
 
   return (
-    <div className="navbar bg-neutral w-full">
+    <div className={`navbar bg-neutral w-full sm:w-64 sm:h-screen sm:fixed`}>
       {/* navbar starts */}
       <div className="navbar-start">
         <Link

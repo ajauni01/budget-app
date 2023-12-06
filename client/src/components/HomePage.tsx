@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="mt-20">
-        <h2 className="text-5xl mb-10">Budget App Version 2.0</h2>
+        <h2 className="text-5xl mb-10">Budget App Final Version</h2>
         {/* form to write the items and prices  */}
         <AddItems />
         {/* form ends */}
