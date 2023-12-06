@@ -1,7 +1,7 @@
 const AboutPage = () => {
   return (
     <div className="flex items-center justify-center mt-10">
-      <article className="prose text-white">
+      <article className="prose ">
         <h1>Budget Management App</h1>
         <p>
           Welcome to our user-friendly budget management app! This application

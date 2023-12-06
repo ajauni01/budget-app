@@ -2,6 +2,8 @@ import { useRef } from "react";
 import axios from "axios";
 
 const AddItems = () => {
+// get the current theme from local storage
+  const currentTheme = localStorage.getItem("theme");
   // useRef to get the value of the input field for items (hold the user value unlike useState which re-renders the component)
   const inputRefItem = useRef<HTMLInputElement>(null);
   // useRef to get the value of the input field for price (hold the user value unlike useState which re-renders the component)
@@ -64,7 +66,8 @@ const AddItems = () => {
         </div>
         {/*action button to add items */}
         <button
-          className="w-full h-11 bg-teal-500 hover:bg-teal-700 text-sm text-white py-1 px-2 rounded"
+          className={`w-full h-11 bg-teal-500 hover:bg-teal-700 text-xl  py-1 px-2 rounded ${
+            currentTheme === "dark" ? "text-white" : ""}`}
           type="submit"
         >
           Add Items

@@ -3,6 +3,8 @@ import axios from "axios";
 import Loader from "../Loader";
 
 const GetAndDeleteItems = () => {
+  // get the current theme from local storage
+  const currentTheme = localStorage.getItem("theme");
   // Define a function to fetch items from the backend
   const fetchItems = async () => {
     try {
@@ -51,12 +53,12 @@ const GetAndDeleteItems = () => {
         <div>
           <div className="flex">
             {/* show the added items depending on user input */}
-            <div className="text-white">
+            <div className="">
               {actualItems.length > 0 ? (
                 actualItems.map((item) => (
                   <div key={item._id} className="flex items-center mt-10">
                     <button
-                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                      className="bg-red-500 hover:bg-red-700  font-bold py-2 px-4 rounded"
                       onClick={() => handleDeleteItem(item._id)}
                     >
                       X
@@ -66,7 +68,8 @@ const GetAndDeleteItems = () => {
                   </div>
                 ))
               ) : (
-                <div className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-5">
+                <div className={`bg-red-500 hover:bg-red-700  font-bold py-2 px-4 rounded mt-5 ${
+                  currentTheme === "dark" ? "text-white" : ""}`}>
                   No Budget Items
                 </div>
               )}
@@ -82,7 +85,7 @@ const GetAndDeleteItems = () => {
                   0
                     ? "bg-red-500 hover:bg-red-700"
                     : ""
-                } text-white font-bold py-2 px-4 rounded`}
+                }  font-bold py-2 px-4 rounded`}
               >
                 {/* Calculate total price */}
                 Total: $

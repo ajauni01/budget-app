@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 
 const ContactPage = () => {
+  // get the current theme from local storage
+  const currentTheme = localStorage.getItem("theme");
+
   const {
     register,
     trigger,
@@ -17,7 +20,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-32 text-white container mx-auto">
+    <div className="flex flex-col items-center justify-center mt-32  container mx-auto">
       {/* HEADING */}
       <div>
         <p className="font-semibold text-4xl basis-1/2 text-end md:me-6">
@@ -36,7 +39,9 @@ const ContactPage = () => {
           {/* Input field to write user's name */}
           <input
             type="text"
-            className="w-full font-semibold   p-3"
+            className={`w-full font-semibold p-3 ${
+              currentTheme === "light" ? "border-2 border-black" : ""
+            }`}
             placeholder="NAME"
             {...register("name", { required: true, maxLength: 100 })}
           />
@@ -51,7 +56,9 @@ const ContactPage = () => {
           {/* Input field to write the user's email address */}
           <input
             type="email"
-            className="w-full bg-blue font-semibold  p-3 mt-5"
+            className={`w-full bg-blue font-semibold  p-3 mt-5 ${
+              currentTheme === "light" ? "border-2 border-black" : ""
+            }`}
             placeholder="EMAIL"
             {...register("email", { required: true, maxLength: 100 })}
           />
@@ -63,7 +70,9 @@ const ContactPage = () => {
 
           {/* TextArea to write message */}
           <textarea
-            className="w-full bg-blue font-semibold  p-3 mt-5"
+            className={`w-full bg-blue font-semibold  p-3 mt-5 ${
+              currentTheme === "light" ? "border-2 border-black" : ""
+            }`}
             placeholder="MESSAGE"
             rows={5}
             cols={50}
@@ -78,7 +87,7 @@ const ContactPage = () => {
           )}
           {/* button to submit the contact form */}
           <button
-            className="w-full h-11 bg-teal-500 hover:bg-teal-700  text-xl font-bold text-white py-1 px-2 mt-5 rounded"
+            className="w-full h-11 bg-teal-500 hover:bg-teal-700  text-xl font-bold  py-1 px-2 mt-5 rounded"
             type="submit"
           >
             Send

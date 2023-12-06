@@ -1,14 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import HomePage from "./components/HomePage";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
-import { QueryClient, QueryClientProvider } from "react-query";
 import ErrorPage from "./components/ErrorPage";
+import HomePage from "./components/HomePage";
+import NavBar from "./components/NavBar";
 
 const queryClient = new QueryClient();
 
 function App() {
+  
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -17,7 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<ErrorPage />} /> {/* Add the ErrorPage route */}
+          <Route path="*" element={<ErrorPage />} />{" "}
         </Routes>
       </Router>
     </QueryClientProvider>

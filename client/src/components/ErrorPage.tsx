@@ -13,11 +13,11 @@ const ErrorPage = () => {
     <div className="flex flex-col justify-center items-center min-h-screen">
       {/* errorText */}
       <div>
-        <p className="text-5xl text-white">404 - Page Not Found</p>
+        <p className="text-5xl ">404 - Page Not Found</p>
       </div>
       {/* go back button */}
       <div>
-        <button className="btn btn-accent mt-5 text-2xl text-white" onClick={handleGoBack}>
+        <button className="btn btn-accent mt-5 text-2xl " onClick={handleGoBack}>
           Go Back
         </button>
       </div>
