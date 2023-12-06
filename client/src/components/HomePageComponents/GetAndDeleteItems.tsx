@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
+import Loader from "../Loader";
 
 const GetAndDeleteItems = () => {
   // Define a function to fetch items from the backend
@@ -44,7 +45,8 @@ const GetAndDeleteItems = () => {
   return (
     <>
       {isLoading ? (
-        "Loading"
+        // show the loader if the data is loading
+        <Loader/>
       ) : (
         <div>
           <div className="flex">
