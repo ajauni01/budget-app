@@ -5,25 +5,28 @@ import ErrorPage from "./ErrorPage";
 import HomePage from "./HomePage";
 import NavBarItems from "./NavBarItems";
 import { useEffect, useState } from "react";
+import News from "./HomePageComponents/News";
 
 const Drawer = () => {
+  // theme state and local storage to get or set the theme
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-);
+  );
 
-const handleToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  // theme toggler
+  const handleToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.checked) {
-        setTheme("dark");
+      setTheme("dark");
     } else {
-        setTheme("light");
+      setTheme("light");
     }
-};
-
-useEffect(() => {
+  };
+  // useState hook to get or set the theme
+  useEffect(() => {
     localStorage.setItem("theme", theme!);
     const localTheme = localStorage.getItem("theme");
     document.documentElement.setAttribute("data-theme", localTheme!);
-}, [theme]);
+  }, [theme]);
 
   return (
     <div className="drawer">
@@ -68,71 +71,84 @@ useEffect(() => {
           {/* navbar-center */}
           <div className="navbar-center sm:hidden md:block">
             {/* navbar content here */}
+            {/* home */}
             <Link
-          to="/"
-          className={`text-xl  px-5 link link-hover ${
-            theme === "light" ? "text-white" : ""
-          }`}
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          className={`text-xl  px-5 link link-hover ${
-            theme === "light" ? "text-white" : ""
-          }`}
-        >
-          About
-        </Link>
-        <Link
-          to="/contact"
-          className={`text-xl  link link-hover ${
-            theme === "light" ? "text-white" : ""
-          }`}
-        >
-          Contact
-        </Link>
-        {/* theme controller */}
-        <input
-          onChange={handleToggle}
-          type="checkbox"
-          value="synthwave"
-          className="ml-5 toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2"
-        />
+              to="/"
+              className={`text-xl  px-5 link link-hover ${
+                theme === "light" ? "text-white" : ""
+              }`}
+            >
+              Home
+            </Link>
+            {/* about */}
+            <Link
+              to="/about"
+              className={`text-xl  px-5 link link-hover ${
+                theme === "light" ? "text-white" : ""
+              }`}
+            >
+              About
+            </Link>
+            {/* contact */}
+            <Link
+              to="/contact"
+              className={`text-xl  link link-hover ${
+                theme === "light" ? "text-white" : ""
+              }`}
+            >
+              Contact
+            </Link>
+            {/* budget news */}
+            <Link
+              to="/news"
+              className={`text-xl px-5  link link-hover ${
+                theme === "light" ? "text-white" : ""
+              }`}
+            >
+              News
+            </Link>
+            {/* theme controller */}
+            <input
+              onChange={handleToggle}
+              type="checkbox"
+              value="synthwave"
+              className="ml-5 toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2"
+            />
           </div>
           {/* navbar ends */}
-      <div className="navbar-end">
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img
-                alt="User Profile Image"
-                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              />
+          <div className="navbar-end">
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="User Profile Image"
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
             </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+          </div>
         </div>
         {/* page content */}
         <div className="sm:p-5">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/news" element={<News />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
         </div>
       </div>
       {/* sidebar for the mobile devices */}
