@@ -25,7 +25,7 @@ const AddItems = () => {
           price: parseInt(userInputValuePrice),
         };
         // Send a POST request to the backend with the new item object
-        await axios.post("http://localhost:3000/budget/post", newItem);
+        await axios.post("https://budget-app-server-five.vercel.app/budget/post", newItem);
         // Clear the item input field
         inputRefItem.current!.value = "";
         // Clear the price input field

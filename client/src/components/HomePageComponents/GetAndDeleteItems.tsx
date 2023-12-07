@@ -9,7 +9,7 @@ const GetAndDeleteItems = () => {
   const fetchItems = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/budget/get?sort=-timestamp"
+        "https://budget-app-server-five.vercel.app/budget/get?sort=-timestamp"
       );
       return res.data;
     } catch (error) {
@@ -30,7 +30,7 @@ const GetAndDeleteItems = () => {
   const handleDeleteItem = async (itemId: string) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/budget/delete/${itemId}`
+        `https://budget-app-server-five.vercel.app/budget/delete/${itemId}`
       );
 
       if (response.data.success) {

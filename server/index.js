@@ -32,7 +32,7 @@ const startServer = async () => {
   try {
     connectDB(process.env.MONGODB_URL);
     app.listen(3000, () =>
-      console.log("Server is running on port http://localhost:3000")
+      console.log("Server is running on port https://budget-app-server-five.vercel.app")
     );
   } catch (error) {
     console.log(error);
