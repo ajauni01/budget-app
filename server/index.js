@@ -16,7 +16,7 @@ app.use(cors());
 // configure express to parse JSON requests
 app.use(express.json({ limit: "50mb" }));
 
-// general routes
+// general route
 app.get("/", async (req, res) => {
   res.send("Hello from budget app server");
 });
