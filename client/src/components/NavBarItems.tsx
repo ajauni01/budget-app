@@ -17,7 +17,7 @@ const NavBarItems = () => {
     useEffect(() => {
         localStorage.setItem("theme", theme!);
         const localTheme = localStorage.getItem("theme");
-        document.documentElement.setAttribute("data-theme", localTheme);
+        document.documentElement.setAttribute("data-theme", localTheme!);
     }, [theme]);
 
     return (
