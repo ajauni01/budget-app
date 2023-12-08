@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import Loader from "../Loader";
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 
 const GetAndDeleteItems = () => {
   // get the current theme from local storage
@@ -55,11 +56,11 @@ const GetAndDeleteItems = () => {
             {/* show the added items depending on user input */}
             <div className="">
               {actualItems.length > 0 ? (
-                actualItems.map((item) => (
+                actualItems.map((item: { _id: Key | null | undefined; item: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) => (
                   <div key={item._id} className="flex items-center mt-10">
                     <button
                       className="bg-red-500 hover:bg-red-700  font-bold py-2 px-4 rounded"
-                      onClick={() => handleDeleteItem(item._id)}
+                      onClick={() => handleDeleteItem(item._id as string)}
                     >
                       X
                     </button>
@@ -81,7 +82,7 @@ const GetAndDeleteItems = () => {
               <hr className="mt-5 mb-2" />
               <h3
                 className={`text-2xl ${
-                  actualItems.reduce((total, item) => total + item.price, 0) ===
+                  actualItems.reduce((total: any, item: { price: any; }) => total + item.price, 0) ===
                   0
                     ? "bg-red-500 hover:bg-red-700"
                     : ""
@@ -89,7 +90,7 @@ const GetAndDeleteItems = () => {
               >
                 {/* Calculate total price */}
                 Total: $
-                {actualItems.reduce((total, item) => total + item.price, 0)}
+                {actualItems.reduce((total: any, item: { price: any; }) => total + item.price, 0)}
               </h3>
             </div>
           )}
