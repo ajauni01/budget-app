@@ -33,7 +33,7 @@ const ContactPage = () => {
         <form
           target="_blank"
           onSubmit={onSubmit}
-          action="https://formsubmit.co/c0f823750805b642ae77b74ecb1e8e15"
+          action="https://formsubmit.co/ajauni01@wsc.edu"
           method="POST"
         >
           {/* Input field to write user's name */}
